@@ -3,6 +3,8 @@
 3rd party lisb:
 - utlist from https://github.com/troydhanson/uthash
 
+Using POSIX threads
+
 ---
 ### Build
 
@@ -11,6 +13,7 @@
 3. Run `./make`
 ---
 #### Commands:
+
 - `seq# x y` - to generate subsequence
 - - `#` for subsequence
 - - `x` for start value
@@ -19,9 +22,14 @@
 - `export seq` or `e` - to send sequence to all clients
 
 - `exit` or `quit` or `q` - to shutdown server (brocken!)
+---
+#### Issues:
+- Current realisation of threads uses blocking socket commands such accept or read
+- Unable to shutdown the server by client
+- Not all errors are handled
 
 ---
 
 Port of server is hardcoded as `12345`.
 Logging with printf macro can be disabled by changing `#if 1` to `#if 0`.
-Telnet was used for clients with `telnet localhost 12345` command.
+I used telnet as client with `telnet localhost 12345` command.
